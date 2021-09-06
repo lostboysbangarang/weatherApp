@@ -9,8 +9,9 @@ const api = {
     keyII: "xtH1MCiKNIH0zY0fm8rStMUghTWhnqJI",
     oneCall: "https://api.openweathermap.org/data/2.5/onecall?lat="
 }
-
-
+var localArray= [];
+const savedLocal = document.querySelector(".location_history")
+var prevSearch=$(".history");
 
 
 searchName.addEventListener("keypress", setQuery);
@@ -31,6 +32,12 @@ function setQuery(keyNum) {
 $("#btn").click(function () {
     findLocation(searchName.value);
 });
+$(".history").click(function () {
+    findLocation(this.title);
+});
+$(".clear").click(function () {
+    localStorage.clear();
+})
 function findLocation (query) {
     cityState=query.split(", ");
     // console.log(cityState[0]);
@@ -436,9 +443,85 @@ function tempGague(temp) {
 
 
 
+$("#butt").click(function(){
+    if (searchName.value != "") {
+        saveLocal(searchName.value);
+    }
+});
+
+
+
+function saveLocal(element) {
+    if (typeof localStorage.getItem("savedPlaces") == "string") {
+        var tempArray = JSON.parse(localStorage.getItem("savedPlaces"))
+        console.log("help"+tempArray);
+    } else {
+        var tempArray = localArray;
+        console.log("help me"+tempArray);
+    }
+    
+    console.log(tempArray);
+    var prevArray=tempArray;
+    // tempArray.push(element);
+    const pushLocation = (obj) => {
+        var flag = 0;
+        prevArray.forEach((elem) => {
+            console.log(elem);
+            console.log(obj);
+            if(obj === elem) {
+                flag=1;
+            }
+        });
+        if (flag === 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    if (pushLocation(element)){
+        tempArray.push(element);
+    }
+    console.log(tempArray);
+    localStorage.setItem("savedPlaces", JSON.stringify(tempArray));
+    places = localStorage.getItem("savedPlaces");
+    console.log(typeof places);
+    while (savedLocal.firstChild) {
+        savedLocal.removeChild(savedLocal.firstChild);
+    }
+    
+
+    for (i=0; i<tempArray.length; i++) {
+        console.log(tempArray.length);
+        // if (pushLocation(tempArray[i])) {
+            var icon=document.createElement("i");
+            icon.setAttribute("class", "fal fa-umbrella-beach history");
+            icon.setAttribute("title", tempArray[i]);
+            savedLocal.appendChild(icon);
+        // }
+        
+    }
+}
+
 
 
 function loadFunct(){
     dateSet(now);
     findLocation(searchName.placeholder);
+    if (typeof localStorage.getItem("savedPlaces") == "string") {
+        var tempArray = JSON.parse(localStorage.getItem("savedPlaces"))
+        console.log("help"+tempArray);
+    } else {
+        var tempArray = localArray;
+        console.log("help me"+tempArray);
+    }
+    for (i=0; i<tempArray.length; i++) {
+        console.log(tempArray.length);
+        // if (pushLocation(tempArray[i])) {
+            var icon=document.createElement("i");
+            icon.setAttribute("class", "fal fa-umbrella-beach history");
+            icon.setAttribute("title", tempArray[i]);
+            savedLocal.appendChild(icon);
+        // }
+        
+    }
 }
