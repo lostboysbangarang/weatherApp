@@ -68,7 +68,7 @@ function oneCall(lat, long) {
         }).then(displayWeather)
 }
 function displayWeather(weather) {
-    console.log(weather.daily);
+    // console.log(weather.daily);
     tempGague(weather.current.temp);
     windSpeed(weather.current.wind_speed);
     humidity(weather.current.humidity);
@@ -82,12 +82,14 @@ function forecast(dailyArray) {
     for (i=0; i<5; i++) {
         // var elementLoc=
         var elem = $(".forecast_day"+i);
-        console.log(elem[0].children[2]);
+        // console.log(elem[0].children[2]);
         prevIcon = elem[0].children[0].children[0].classList[1];
         // console.log(element[i].children[0]);
-        console.log(dailyArray[i].weather[0].id);
+        console.log(dailyArray[i]);
         var bouncer=dailyArray[i].weather[0].id
         const dayNnite=dailyArray[i].weather[0].icon;
+        // console.log(elem.find($(".sun"))[0].children[0])
+        elem.find($(".sun"))[0].children[0].setAttribute("title", dailyArray[i].weather[0].description)
         switch (true) {
             case (bouncer < 233):
                 elem.find($(".sun")).find($(".fal")).removeClass(prevIcon).addClass("fa-thunderstorm")
@@ -184,10 +186,11 @@ function forecast(dailyArray) {
         }
         avgTemp = (dailyArray[i].temp.min+dailyArray[i].temp.max)/2;
         prevIconTemp = elem[0].children[1].children[0].classList[1];
-        // console.log(ParseFloat(avgTemp, 2));
+//        console.log(ParseFloat(avgTemp, 2));
+        elem.find($(".temp"))[0].children[0].setAttribute("title", avgTemp)
         switch(true) {
             case (avgTemp<37):
-                // console.log($(".icon.temp").children);
+//                console.log($(".icon.temp").children);
                 elem.find($(".temp")).find($(".fal")).removeClass(prevIconTemp).addClass("fa-temperature-frigid");
                 break;
             case (avgTemp<51):
@@ -204,6 +207,7 @@ function forecast(dailyArray) {
                 break;
         }
         var humidity = dailyArray[i].humidity;
+        elem.find($(".humid"))[0].children[0].setAttribute("title", humidity);
         switch (true) {
             case (humidity < 20):
                 elem.find($(".humid")).find($(".fal")).css("color", "red");
@@ -216,6 +220,7 @@ function forecast(dailyArray) {
                 break;
         }
         var shades = dailyArray[i].uvi;
+        elem.find($(".uvIndex"))[0].children[0].setAttribute("title", shades)
         switch (true) {
             case (shades < 3):
                 elem.find($(".uvIndex")).find($(".fal")).css("color", "green");
@@ -235,6 +240,7 @@ function forecast(dailyArray) {
         }
         var speed = dailyArray[i].wind_speed;
         prevIconSpeed = elem[0].children[4].children[0].classList[1];
+        elem.find($(".wind"))[0].children[0].setAttribute("title", speed);
         switch (true) {
             case (speed < 21):
                 if (prevIconSpeed == "fa-wind-warning") {
@@ -263,13 +269,13 @@ function ParseFloat(str,val) {
 }
 function dateSet (today) {
     $(".date_day")[0].innerHTML = today.format("dddd");
-    // console.log(today);
+//    console.log(today);
     $(".date_number")[0].innerHTML = today.format("Do");
     $(".date_month")[0].innerHTML = today.format("MMMM");
     $(".date_year")[0].innerHTML = today.format("YYYY");
 }
 function currentWeather(idPlease) {
-    // console.log(idPlease);
+//    console.log(idPlease);
     const bouncer=idPlease.id;
     const dayNnite=idPlease.icon;
     var element=$(".stats_sun");
@@ -417,13 +423,13 @@ function windSpeed(mph) {
 function tempGague(temp) {
     const x = temp;
     var element=$(".icon.temp");
-    // console.log(element[0].children[1]);
+//    console.log(element[0].children[1]);
     prevIcon=element[0].children[0].classList[1];
     tempText=element[0].children[1];
     tempText.innerHTML=x;
     switch(true) {
         case (x<37):
-            // console.log($(".icon.temp").children);
+//            console.log($(".icon.temp").children);
             element.find($(".fal")).removeClass(prevIcon).addClass("fa-temperature-frigid");
             break;
         case (x<51):
@@ -454,20 +460,20 @@ $("#butt").click(function(){
 function saveLocal(element) {
     if (typeof localStorage.getItem("savedPlaces") == "string") {
         var tempArray = JSON.parse(localStorage.getItem("savedPlaces"))
-        console.log("help"+tempArray);
+//        // console.log("help"+tempArray);
     } else {
         var tempArray = localArray;
-        console.log("help me"+tempArray);
+//        // console.log("help me"+tempArray);
     }
     
-    console.log(tempArray);
+//    // console.log(tempArray);
     var prevArray=tempArray;
     // tempArray.push(element);
     const pushLocation = (obj) => {
         var flag = 0;
         prevArray.forEach((elem) => {
-            console.log(elem);
-            console.log(obj);
+//            // console.log(elem);
+//            // console.log(obj);
             if(obj === elem) {
                 flag=1;
             }
@@ -481,17 +487,17 @@ function saveLocal(element) {
     if (pushLocation(element)){
         tempArray.push(element);
     }
-    console.log(tempArray);
+//    // console.log(tempArray);
     localStorage.setItem("savedPlaces", JSON.stringify(tempArray));
     places = localStorage.getItem("savedPlaces");
-    console.log(typeof places);
+//    // console.log(typeof places);
     while (savedLocal.firstChild) {
         savedLocal.removeChild(savedLocal.firstChild);
     }
     
 
     for (i=0; i<tempArray.length; i++) {
-        console.log(tempArray.length);
+//        // console.log(tempArray.length);
         // if (pushLocation(tempArray[i])) {
             var icon=document.createElement("i");
             icon.setAttribute("class", "fal fa-umbrella-beach history");
@@ -509,13 +515,13 @@ function loadFunct(){
     findLocation(searchName.placeholder);
     if (typeof localStorage.getItem("savedPlaces") == "string") {
         var tempArray = JSON.parse(localStorage.getItem("savedPlaces"))
-        console.log("help"+tempArray);
+        // console.log("help"+tempArray);
     } else {
         var tempArray = localArray;
-        console.log("help me"+tempArray);
+        // console.log("help me"+tempArray);
     }
     for (i=0; i<tempArray.length; i++) {
-        console.log(tempArray.length);
+        // console.log(tempArray.length);
         // if (pushLocation(tempArray[i])) {
             var icon=document.createElement("i");
             icon.setAttribute("class", "fal fa-umbrella-beach history");
