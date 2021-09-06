@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: "Walter Turncoat", cursive;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 66.6667vh;
+    width: 100vw;
+    &_location {
+        background-color: red;
+        height: 100%;
+        flex-basis: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & .location {
+            &_search {
+                background-color: white;
+                width: 21vw;
+                display: flex;
+                margin-top: 3vh;
+                & .searchBar {
+                    font-family: "Walter Turncoat", cursive;
+                    width: 17.6042vw;
+                    height: 4.6296vh;
+                    text-align: center;
+                    font-size: 1.5em;
+                }
+                & .button {
+                    border: none;
+                    background-color: transparent;
+                }
+                & .fal {
+                    font-size: 4.6296vh;
+                }
+            }
+            &_history {
+                margin-top: 1vh;
+                height: 54vh;
+                background-color: yellow;
+                width: 100%;
+            }
+        }
+        
+    }
+    &_stats {
+        background-color: green;
+        height: 100%;
+        flex-basis: 53%;
+        display: flex;
+        // justify-content: space-between;
+        & .stats {
+            &_container {
+                width: 62.3%;
+                height: 58%;
+                margin-top: 16vh;
+                margin-left: 1.25vw;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                // justify-content: center;
+                justify-content: space-between;
+                & .location {
+                    & h1 {
+                        font-weight: 400;
+                        font-size: 2.5em;
+                        line-height: 0;
+                    }
+                }
+                & .container {
+                    width: 100%;
+                    height: 78%;
+                    background-color: red;
+                    display: flex;
+                    // flex-direction: column;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    & .fal {
+                        font-size: 5em;
+                    }
+                    & .icon {
+                        background-color: purple;
+                        width: 46%;
+                        & span {
+                            font-size: 2em;
+                        }
+                        & .spann {
+                            margin-left: 3vw;
+                        }
+                    }
+                }
+            }
+            &_sun {
+                margin-left: auto;
+                margin-right: auto;
+                & .fal {
+                    font-size: 18em;
+                    margin-top: 16vh;
+                }
+            }
+        }
+    }
+    &_date {
+        background-color: blue;
+        height: 100%;
+        flex-basis: 17%;
+        & .wrapper {
+            margin-top: 12vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & .date {
+                font-size: 2.5em;
+                line-height: .8em;
+            }
+        }
+    }
+}
+.containerII {
+    display: flex;
+    width: 100vw;
+    height: 33.3333vh;
+    & .forecast {
+        background-color: rebeccapurple;
+        flex-basis: 20%;
+        &_icon {
+            font-size: 3.5em;
+            position: relative;
+        }
+        & .temp {
+            top: 18%;
+            left: 12%;
+        }
+        & .humid {
+            left: 44%;
+            top: -6%;
+        }
+        & .uvIndex {
+            top: -110%;
+            left: 78%;
+        }
+        & .wind {
+            top: -100%;
+            left: 78%;
+        }
+        & .date {
+            top: -90%;
+            left: 65%;
+        }
+        & .sun {
+            position: relative;
+            top: 8.3333%;
+            left: 9.1146%;
+            & .fal {
+                font-size: 12.5em;
+            }
+        }
+    }
+}

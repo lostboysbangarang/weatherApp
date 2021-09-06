@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap");
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Walter Turncoat", cursive;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 66.6667vh;
+  width: 100vw;
+}
+.container_location {
+  background-color: red;
+  height: 100%;
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container_location .location_search {
+  background-color: white;
+  width: 21vw;
+  display: flex;
+  margin-top: 3vh;
+}
+.container_location .location_search .searchBar {
+  font-family: "Walter Turncoat", cursive;
+  width: 17.6042vw;
+  height: 4.6296vh;
+  text-align: center;
+  font-size: 1.5em;
+}
+.container_location .location_search .button {
+  border: none;
+  background-color: transparent;
+}
+.container_location .location_search .fal {
+  font-size: 4.6296vh;
+}
+.container_location .location_history {
+  margin-top: 1vh;
+  height: 54vh;
+  background-color: yellow;
+  width: 100%;
+}
+.container_stats {
+  background-color: green;
+  height: 100%;
+  flex-basis: 53%;
+  display: flex;
+}
+.container_stats .stats_container {
+  width: 62.3%;
+  height: 58%;
+  margin-top: 16vh;
+  margin-left: 1.25vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.container_stats .stats_container .location h1 {
+  font-weight: 400;
+  font-size: 2.5em;
+  line-height: 0;
+}
+.container_stats .stats_container .container {
+  width: 100%;
+  height: 78%;
+  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.container_stats .stats_container .container .fal {
+  font-size: 5em;
+}
+.container_stats .stats_container .container .icon {
+  background-color: purple;
+  width: 46%;
+}
+.container_stats .stats_container .container .icon span {
+  font-size: 2em;
+}
+.container_stats .stats_container .container .icon .spann {
+  margin-left: 3vw;
+}
+.container_stats .stats_sun {
+  margin-left: auto;
+  margin-right: auto;
+}
+.container_stats .stats_sun .fal {
+  font-size: 18em;
+  margin-top: 16vh;
+}
+.container_date {
+  background-color: blue;
+  height: 100%;
+  flex-basis: 17%;
+}
+.container_date .wrapper {
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container_date .wrapper .date {
+  font-size: 2.5em;
+  line-height: 0.8em;
+}
+
+.containerII {
+  display: flex;
+  width: 100vw;
+  height: 33.3333vh;
+}
+.containerII .forecast {
+  background-color: rebeccapurple;
+  flex-basis: 20%;
+}
+.containerII .forecast_icon {
+  font-size: 3.5em;
+  position: relative;
+}
+.containerII .forecast .temp {
+  top: 18%;
+  left: 12%;
+}
+.containerII .forecast .humid {
+  left: 44%;
+  top: -6%;
+}
+.containerII .forecast .uvIndex {
+  top: -110%;
+  left: 78%;
+}
+.containerII .forecast .wind {
+  top: -100%;
+  left: 78%;
+}
+.containerII .forecast .date {
+  top: -90%;
+  left: 65%;
+}
+.containerII .forecast .sun {
+  position: relative;
+  top: 8.3333%;
+  left: 9.1146%;
+}
+.containerII .forecast .sun .fal {
+  font-size: 12.5em;
+}
+
+/*# sourceMappingURL=style.css.map */

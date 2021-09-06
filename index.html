@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Forecast</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-rqn26AG5Pj86AF4SO72RK5fyefcQ/x32DNQfChxWvbXIyXFePlEktwD18fEz+kQU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/>
+
+</head>
+<body>
+    <div class="container">
+        <div class="container_location">
+            <div class="location_search">
+                <input type="text" class="searchBar" id="searchBar" placeholder="San Diego, CA">
+                <button class="button" id="btn">
+                    <i class="fal fa-radar"></i>
+                </button>
+            </div>
+            <div class="location_history"></div>
+        </div>
+        <div class="container_stats">
+            <div class="stats_container">
+                <header class="location">
+                    <h1>Weather in <span class="location_city">San Diego</span></h1>
+                </header>
+                <div class="container">
+                    <div class="icon temp">
+                        <i class="fal fa-temperature-hot"></i>
+                        <span class="spann" id="current_temp">89.5</span><span>f</span>
+                    </div>
+                    <div class="icon wind">
+                        <i class="fal fa-wind-warning"></i>
+                        <span class="spann" id="current_wind">6.34</span><span>mph</span>
+                    </div>
+                    <div class="icon humid">
+                        <i class="fal fa-humidity"></i>
+                        <span class="spann" id="current_humid">66.9</span><span>%</span>
+                    </div>
+                    <div class="icon uvIndex">
+                        <i class="fal fa-sunglasses"></i>
+                        <span class="spann" id="current_uv">0.39</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stats_sun">
+                <i class="fal fa-sun"></i>
+            </div>
+        </div>
+        
+        <div class="container_date">
+            <div class="wrapper">
+                <div class="date date_day">
+                    Wednesday
+                </div>
+                <div class="date date_number">
+                    13th
+                </div>
+                <div class="date date_month">
+                    August
+                </div>
+                <div class="date date_year">
+                    2021
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containerII">
+        <div class="forecast forecast_day0">
+            <div class="forecast sun">
+                <i class="fal fa-sun"></i>
+            </div>
+            <div class="forecast_icon temp">
+                <i class="fal fa-temperature-hot"></i>
+            </div>
+            <div class="forecast_icon humid">
+                <i class="fal fa-humidity"></i>
+            </div>
+            <div class="forecast_icon uvIndex">
+                <i class="fal fa-sunglasses"></i>
+            </div>
+            <div class="forecast_icon wind">
+                <i class="fal fa-wind-warning"></i>
+            </div>
+            <div class="forecast_icon date">13th</div>
+        </div>
+        <div class="forecast forecast_day1">
+            <div class="forecast sun">
+                <i class="fal fa-sun"></i>
+            </div>
+            <div class="forecast_icon temp">
+                <i class="fal fa-temperature-hot"></i>
+            </div>
+            <div class="forecast_icon humid">
+                <i class="fal fa-humidity"></i>
+            </div>
+            <div class="forecast_icon uvIndex">
+                <i class="fal fa-sunglasses"></i>
+            </div>
+            <div class="forecast_icon wind">
+                <i class="fal fa-wind"></i>
+            </div>
+            <div class="forecast_icon date">13th</div>
+        </div>
+        <div class="forecast forecast_day2">
+            <div class="forecast sun">
+                <i class="fal fa-sun"></i>
+            </div>
+            <div class="forecast_icon temp">
+                <i class="fal fa-temperature-hot"></i>
+            </div>
+            <div class="forecast_icon humid">
+                <i class="fal fa-humidity"></i>
+            </div>
+            <div class="forecast_icon uvIndex">
+                <i class="fal fa-sunglasses"></i>
+            </div>
+            <div class="forecast_icon wind">
+                <i class="fal fa-wind"></i>
+            </div>
+            <div class="forecast_icon date">13th</div>
+        </div>
+        <div class="forecast forecast_day3">
+            <div class="forecast sun">
+                <i class="fal fa-sun"></i>
+            </div>
+            <div class="forecast_icon temp">
+                <i class="fal fa-temperature-hot"></i>
+            </div>
+            <div class="forecast_icon humid">
+                <i class="fal fa-humidity"></i>
+            </div>
+            <div class="forecast_icon uvIndex">
+                <i class="fal fa-sunglasses"></i>
+            </div>
+            <div class="forecast_icon wind">
+                <i class="fal fa-wind"></i>
+            </div>
+            <div class="forecast_icon date">13th</div>
+        </div>
+        <div class="forecast forecast_day4">
+            <div class="forecast sun">
+                <i class="fal fa-sun"></i>
+            </div>
+            <div class="forecast_icon temp">
+                <i class="fal fa-temperature-hot"></i>
+            </div>
+            <div class="forecast_icon humid">
+                <i class="fal fa-humidity"></i>
+            </div>
+            <div class="forecast_icon uvIndex">
+                <i class="fal fa-sunglasses"></i>
+            </div>
+            <div class="forecast_icon wind">
+                <i class="fal fa-wind"></i>
+            </div>
+            <div class="forecast_icon date">13th</div>
+        </div>
+    </div>
+</body>
+<script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script src="./lib/moment/moment.min.js"></script>
+<script src="./js/scripts.js"></script>
+<script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+
+</html>
