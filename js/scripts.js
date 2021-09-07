@@ -5,7 +5,7 @@ const api = {
     key: "d4f706b2c6f6ef8e096d9431aeb3a05a",
     base: "https://api.openweathermap.org/data/2.5/weather?q=",
     geo: "https://api.openweathermap.org/geo/1.0/direct?q=",
-    location: "http://open.mapquestapi.com/geocoding/v1/address?key=",
+    location: "https://open.mapquestapi.com/geocoding/v1/address?key=",
     keyII: "xtH1MCiKNIH0zY0fm8rStMUghTWhnqJI",
     oneCall: "https://api.openweathermap.org/data/2.5/onecall?lat="
 }
